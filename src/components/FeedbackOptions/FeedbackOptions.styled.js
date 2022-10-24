@@ -20,7 +20,8 @@ export const Button = styled.button`
 
   transition: background-color ${p => p.theme.transitions.default};
 
-  :hover {
+  :hover,
+  :focus {
     background-color: ${p => p.theme.colors.secondaryBgd};
   }
 `;

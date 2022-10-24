@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const StatList = styled.ul``;
+export const StatList = styled.ul`
+  margin-bottom: ${p => p.theme.space[5]};
+`;
 
 export const StatListItem = styled.li`
   font-size: ${p => p.theme.fontSizes.lg};

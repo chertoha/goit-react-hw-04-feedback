@@ -1,24 +1,47 @@
+import PropTypes from 'prop-types';
 import Box from 'components/Box';
+import Notification from 'components/Notification';
 import { StatList, StatListItem } from './Statistics.styled';
 
-const Statistics = ({}) => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <Box>
-      <StatList>
-        <StatListItem>
-          <p>Good: 3</p>
-        </StatListItem>
-        <StatListItem>
-          <p>Neutral: 2</p>
-        </StatListItem>
-        <StatListItem>
-          <p>Bad: 2</p>
-        </StatListItem>
-      </StatList>
+      {total ? (
+        <>
+          <StatList>
+            <StatListItem>
+              <p>Good: {good}</p>
+            </StatListItem>
+            <StatListItem>
+              <p>Neutral: {neutral}</p>
+            </StatListItem>
+            <StatListItem>
+              <p>Bad: {bad}</p>
+            </StatListItem>
+          </StatList>
+
+          <StatList>
+            <StatListItem>
+              <p>Total: {total}</p>
+            </StatListItem>
+            <StatListItem>
+              <p>Positive feedback: {positivePercentage}%</p>
+            </StatListItem>
+          </StatList>
+        </>
+      ) : (
+        <Notification message="There is no feedback" type="failure" />
+      )}
     </Box>
   );
 };
 
-// PropTypes!!!!!!!!!
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
 
 export default Statistics;
