@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { style } from 'styled-system';
 
 export const Button = styled.button`
   margin-right: ${p => p.theme.space[3]};
