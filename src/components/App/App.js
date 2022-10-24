@@ -10,21 +10,9 @@ class App extends React.Component {
     bad: 0,
   };
 
-  goodHandle = () => {
+  handleFeedback = option => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-
-  neutralHandle = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  badHandle = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+      [option]: prevState[option] + 1,
     }));
   };
 
@@ -45,9 +33,8 @@ class App extends React.Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            onGoodHandle={this.goodHandle}
-            onNeutralHandle={this.neutralHandle}
-            onBadHandle={this.badHandle}
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleFeedback}
           />
         </Section>
 

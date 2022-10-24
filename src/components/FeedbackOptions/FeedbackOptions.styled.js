@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   margin-right: ${p => p.theme.space[3]};
+  padding: ${p => p.theme.space[2]} ${p => p.theme.space[4]};
 
+  text-transform: capitalize;
   font-size: ${p => p.theme.fontSizes.md};
   font-weight: ${p => p.theme.fontWeights.bolder};
-  padding: ${p => p.theme.space[2]} ${p => p.theme.space[4]};
   cursor: pointer;
 
   background-color: transparent;
